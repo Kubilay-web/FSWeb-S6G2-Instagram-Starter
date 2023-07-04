@@ -7,6 +7,7 @@
 .post-header {
   display: flex;
   align-items: center;
+  justify-content:center;
 }
 .post-header h2 {
   font-size: 14px;
@@ -22,7 +23,7 @@
   width: 100%;
 }
 .post-image {
-  width: 100%;
+  width:50%;
 }
 .post-header {
   display: flex;
@@ -38,7 +39,7 @@
 }
 .like-section {
   display: flex;
-  justify-content: flex-start;
+  justify-content:center;
 }
 .like-section-wrapper {
   height: 10px;
@@ -47,6 +48,6 @@
 }
 .like-number {
   width: 100px;
-  margin: 15px 0px;
+  margin: 20px auto 20px auto;
   font-size: 16px;
 }

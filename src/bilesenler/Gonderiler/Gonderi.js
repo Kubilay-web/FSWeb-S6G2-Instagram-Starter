@@ -3,27 +3,22 @@ import Yorumlar from "../Yorumlar/Yorumlar";
 import BegenBolumu from "./BegenBolumu";
 import GonderiBasligi from "./GonderiBasligi";
 
-const Gonderi = (props) => {
-  // 🔥 Bu bileşenin parentının aşağıdaki propları düzgün gönderdiğinden emin olun.
-  const { gonderi, gonderiyiBegen } = props;
+
+const Gonderi = ({ postData, gonderiyiBegen }) => {
+  const { username, thumbnailUrl, imageUrl, id, likes, comments } = postData;
+
+  const handleGonderiyiBegen = () => {
+    gonderiyiBegen(id);
+  };
 
   return (
-    <div className="post-border">
-      <GonderiBasligi
-        username={gonderi.username}
-        thumbnailUrl={gonderi.thumbnailUrl}
-      />
-      <div className="post-image-wrapper">
-        <img
-          alt="post thumbnail"
-          className="post-image"
-          src={gonderi.imageUrl}
-        />
+    <div className='post-border'>
+      <GonderiBasligi username={username} thumbnailUrl={thumbnailUrl} />
+      <div className='post-image-wrapper'>
+        <img alt='post thumbnail' className='post-image' src={imageUrl} />
       </div>
-      {/* BegenBolumu düzgün çalışması için ihtiyaç duyduğu tüm proplara sahip mi? */}
-      <BegenBolumu gonderiyiBegen={() => gonderiyiBegen(gonderi.id)} />
-      {/* Yorumlar da proplara dikkat istiyor! */}
-      <Yorumlar />
+      <BegenBolumu gonderiyiBegen={handleGonderiyiBegen} likeNr={likes} />
+      <Yorumlar yorumlar={comments} />
     </div>
   );
 };
